@@ -1,0 +1,1 @@
+import{j as r}from"./vendor-ui-C-KOJBkG.js";import{N as t}from"./vendor-react-FGACFbbi.js";import{J as e}from"./index-B6tOlljz.js";import"./vendor-capacitor-BJmI0gRZ.js";import"./vendor-supabase-D7d5BnnK.js";import"./vendor-utils-CRaM6MAQ.js";function f(){return r.jsx(t,{to:e("HeadToHead"),replace:!0})}export{f as default};

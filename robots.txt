@@ -1,0 +1,11 @@
+# robots.txt for https://37themathpuzzle.app
+# Allow all crawlers full access; point them at the sitemap.
+
+User-agent: *
+Allow: /
+
+# Google AdSense crawler — explicitly allowed so ads can be served.
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://37themathpuzzle.app/sitemap.xml

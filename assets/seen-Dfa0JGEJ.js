@@ -1,0 +1,1 @@
+const r=e=>`howToSeenVersion:${e}`;function n(e){try{const t=Number(localStorage.getItem(r(e)));return Number.isFinite(t)&&t>=1}catch{return!1}}function o(e){try{localStorage.setItem(r(e),String(1))}catch{}}export{n as g,o as m};

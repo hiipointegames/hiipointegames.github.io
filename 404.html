@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="37" />
+  <title>37, The Math Puzzle</title>
+
+  <!-- AdSense site-ownership verification (static, so Google's crawler finds it
+       without running JS). The actual ad units are still injected at runtime by
+       src/shell/web-ads/ only when VITE_ADSENSE_CLIENT is set; this tag just
+       proves ownership of 37themathpuzzle.app. Inert on native (AdMob is used
+       there). Publisher id is public. -->
+  <meta name="google-adsense-account" content="ca-pub-6906001828646372" />
+
+  <!-- Google Search Console site-ownership verification for the URL-prefix
+       property https://37themathpuzzle.app/. Static so the crawler finds it
+       without running JS. Public token (not a secret) — safe to commit. Belt-
+       and-suspenders with /google25ecc382b541775d.html (HTML-file method). Do
+       NOT remove either, even after verification succeeds, or GSC un-verifies.
+       Inert on native. -->
+  <meta name="google-site-verification" content="LpPeWo2uymZ5NQKlu8GFcHGOrgNLlDnSbkBKkNUUO1M" />
+
+  <!-- SEO + social sharing. The web build is served at https://37themathpuzzle.app;
+       these tags let links unfurl with a real title/description in iMessage, X,
+       Slack, etc. The og:image asset is added with the PWA icon work (Slice 3). -->
+  <meta name="description"
+    content="37, The Math Puzzle — make every roll equal 37. A free daily math puzzle: combine your dice with math operations to hit the target. Play in your browser." />
+  <link rel="canonical" href="https://37themathpuzzle.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="37, The Math Puzzle" />
+  <meta property="og:title" content="37, The Math Puzzle" />
+  <meta property="og:description"
+    content="Make every roll equal 37. A free daily math puzzle — combine your dice to hit the target." />
+  <meta property="og:url" content="https://37themathpuzzle.app/" />
+  <meta property="og:image" content="https://37themathpuzzle.app/icons/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="37, The Math Puzzle" />
+  <meta name="twitter:description"
+    content="Make every roll equal 37. A free daily math puzzle — combine your dice to hit the target." />
+  <meta name="twitter:image" content="https://37themathpuzzle.app/icons/og-image.png" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:; worker-src 'self' blob:;">
+
+  <!-- Pre-React boot paint. Without this, web users see a blank #0f172a page from
+       first paint until React mounts (the native SplashScreen plugin is gated to
+       native and does nothing in a browser). createRoot() replaces #root's
+       children on first render, so this splash is removed automatically once the
+       app mounts — no JS teardown needed. -->
+  <style>
+    @keyframes boot-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-B6tOlljz.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-FGACFbbi.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-ui-C-KOJBkG.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-capacitor-BJmI0gRZ.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-supabase-D7d5BnnK.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-utils-CRaM6MAQ.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-JepKV1xH.css">
+</head>
+
+<body>
+  <div id="root">
+    <div id="boot-splash"
+      style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;">
+      <div style="font-size:64px;line-height:1;">🎲</div>
+      <div style="margin-top:16px;font-size:22px;font-weight:700;letter-spacing:0.04em;">37</div>
+      <div
+        style="margin-top:24px;width:28px;height:28px;border:3px solid rgba(226,232,240,0.25);border-top-color:#e2e8f0;border-radius:50%;animation:boot-spin 0.8s linear infinite;">
+      </div>
+    </div>
+
+    <!-- No-JS content fallback. REAL page content (not hidden text): it sits in
+         normal flow inside #root, momentarily behind the fixed #boot-splash
+         overlay during boot, and is DISCARDED the moment React mounts
+         (createRoot replaces #root's children).
+         SCOPE — read this before relying on it: because it is destroyed on
+         mount, only clients that do NOT execute JavaScript ever see it. Googlebot
+         and the AdSense crawler both DO execute JavaScript and judge the rendered
+         DOM, so this block does nothing for either of them (verified 2026-08-23
+         on live prod: after render the block is gone and total body text is 210
+         characters). It was added in PR #32 believing otherwise. The rendered-DOM
+         job — a real <h1> equivalent and crawlable links to /how-to-play.html,
+         /privacy.html and /terms.html — is done by src/routing/SiteFooter.jsx.
+         Kept because it is still the right thing to serve a non-JS client, and
+         because content shown only to non-JS clients is a cloaking-shaped risk
+         ONLY when the JS render omits it — which the footer now fixes.
+         Inert on native (the native splash covers boot and React replaces this
+         immediately). -->
+    <main style="max-width:720px;margin:0 auto;padding:40px 20px;color:#e2e8f0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;">
+      <h1>37, The Math Puzzle</h1>
+      <p>
+        37 is a free daily math puzzle: you roll seven dice and combine them with
+        addition, subtraction, multiplication, division, parentheses and
+        exponents so that your equation equals exactly 37. Play instantly in your
+        browser — no download required.
+      </p>
+      <p>
+        Choose your mode. <strong>Easy</strong> is untimed practice with plain
+        white dice. <strong>Challenge</strong> adds colored power dice — green for
+        add/subtract, blue for multiply/divide, red for exponents — with unlimited
+        rounds to learn the rules. The <strong>Daily Challenge</strong> gives every
+        player the same seven dice each day: beat the clock in one sitting, keep
+        your streak alive, and climb the global leaderboard.
+      </p>
+      <h2>Learn more</h2>
+      <ul>
+        <li><a href="/how-to-play.html">How to Play 37 &amp; winning examples</a> — the rules, the power-dice system, and worked solutions that all equal 37.</li>
+        <li><a href="/guides.html">Guides &amp; Strategy</a> — strategy, order of operations, power-dice tactics, exponent technique and worked boards.</li>
+        <li><a href="/faq.html">Frequently Asked Questions</a></li>
+        <li><a href="/about.html">About 37</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms and Conditions</a></li>
+      </ul>
+      <p>A HiiPointe Games LLC production. Also available on iOS and Android.</p>
+    </main>
+  </div>
+</body>
+
+</html>
